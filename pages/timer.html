@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/timer.css">
+    <title>Time</title>
+</head>
+<body>
+    <div id="sekundomers">
+        <div class="time">
+          <span id="minute">00</span>
+          <span id="second">00</span>
+          <span id="ms">00</span>
+        </div>
+        <button id="vpered" onclick="vpered();">Старт</button>
+        <button id="sanovka" onclick="sanovka();">Стоп</button>
+    </div>
+    <script>
+        var timer = 0;
+        var timerInterval;
+        var ms = document.getElementById('ms');
+        var second = document.getElementById('second');
+        var minute = document.getElementById('minute');
+
+        function vpered() {
+        sanovka();
+        timerInterval = setInterval(function() {
+        timer += 1/60;
+        msVal = Math.floor((timer - Math.floor(timer))*100);
+        secondVal = Math.floor(timer) - Math.floor(timer/60) * 60;
+        minuteVal = Math.floor(timer/60);
+        ms.innerHTML = msVal < 10 ? "0" + msVal.toString() : msVal;
+        second.innerHTML = secondVal < 10 ? "0" + secondVal.toString() : secondVal;
+        minute.innerHTML = minuteVal < 10 ? "0" + minuteVal.toString() : minuteVal;
+        }, 1000/60);
+        }
+
+        function sanovka() {
+        clearInterval(timerInterval);
+        }
+    </script>
+</body>
+</html>

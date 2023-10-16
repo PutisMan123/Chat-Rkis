@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Chat</title>
+</head>
+<body>
+    <ul class="pages">
+      <li class="chat_page">
+        <div class="chat_area">
+          <ul class="messages"></ul>
+        </div>
+        <input
+          type="text"
+          placeholder="Type here..."
+          class="message_input"
+        />
+        <div class = 'smile' my-data-smile = '&#128512;'>&#128512;</div>
+        <div class = 'smile' my-data-smile = '&#128517;'>&#128517;</div>
+        <div class = 'smile' my-data-smile = '&#128554;'>&#128554;</div>
+        <div class = 'smile' my-data-smile = '&#129397;'>&#129397;</div>
+        <div class = 'smile' my-data-smile = '&#128125;'>&#128125;</div>
+        <div class = 'smile' my-data-smile = '&#128169;'>&#128169;</div>
+        <div class = 'smile' my-data-smile = '&#129313;'>&#129313;</div>
+        <div class = 'smile' my-data-smile = '&#128520;'>&#128520;</div>
+        <div class = 'smile' my-data-smile = '&#128561;'>&#128561;</div>
+        <div class = 'smile' my-data-smile = '&#128585;'>&#128585;</div>
+      </li>
+      <li class="login_page">
+        <div class="form">
+          <h3 class="title">Придумайте никнейм</h3>
+          <input type="text" maxlength="14" class="username_input" />
+        </div>
+      </li>
+    </ul>
+  
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+    <script>
+        window.addEventListener('click', function(event){
+        if (event.target.classList.contains('smile'))
+        {
+            let edit = document.querySelector('.message_input');
+            edit.value += event.target.attributes['my-data-smile'].value;
+        }
+        });
+    </script>
+  </body>
+</html>
